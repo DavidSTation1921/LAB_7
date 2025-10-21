@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Programas Académicos - Feria Académica UTP 2025</title>
+  <link rel="stylesheet" href="css/estilos.css" />
+</head>
+<body>
+  <header>
+    <div class="logo">
+      <img src="https://utp.ac.pa/sites/default/files/documentos/2023/imagen/logo_utp-rgb_2022.png" alt="Logo UTP">
+      <h1>Feria Académica UTP 2025</h1>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="programas.html" class="activo">Programas</a></li>
+        <li><a href="charlas.html">Charlas</a></li>
+        <li><a href="registro.html">Registro</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="banner" style="background-image: url('img/programas_banner.jpg');">
+    <h2>Programas Académicos</h2>
+  </section>
+
+  <main class="programas-panel">
+    <aside class="lista-programas">
+      <h2>Explora nuestras carreras</h2>
+      <ul>
+        <li onclick="mostrarPrograma(0)">Ingeniería en Sistemas Computacionales</li>
+        <li onclick="mostrarPrograma(1)">Licenciatura en Administración de Empresas</li>
+        <li onclick="mostrarPrograma(2)">Ingeniería Civil</li>
+        <li onclick="mostrarPrograma(3)">Arquitectura</li>
+        <li onclick="mostrarPrograma(4)">Licenciatura en Contabilidad</li>
+      </ul>
+    </aside>
+
+    <section class="detalle-programa">
+      <img id="imagen-programa" src="img/ING.jpg" alt="Imagen del programa">
+      <div>
+        <h3 id="titulo-programa">Ingeniería en Sistemas Computacionales</h3>
+        <p id="descripcion-programa">
+          Forma profesionales capaces de diseñar, desarrollar e implementar soluciones tecnológicas que impulsen la transformación digital y la innovación empresarial.
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2025 Universidad Tecnológica de Panamá - Feria Académica</p>
+  </footer>
+
+  <script>
+    const programas = [
+      {
+        titulo: "Ingeniería en Sistemas Computacionales",
+        descripcion:
+          "Forma profesionales capaces de diseñar, desarrollar e implementar soluciones tecnológicas que impulsen la transformación digital y la innovación empresarial.",
+        imagen: "img/ING.jpg",
+      },
+      {
+        titulo: "Licenciatura en Administración de Empresas",
+        descripcion:
+          "Prepara líderes estratégicos con visión global, ética profesional y habilidades gerenciales para la gestión eficiente de recursos humanos y financieros.",
+        imagen: "img/ADMIN.jpg",
+      },
+      {
+        titulo: "Ingeniería Civil",
+        descripcion:
+          "Capacita ingenieros con conocimientos técnicos y científicos para diseñar, construir y supervisar proyectos de infraestructura sostenibles y seguros.",
+        imagen: "img/CIVIL.jpg",
+      },
+      {
+        titulo: "Arquitectura",
+        descripcion:
+          "Forma profesionales con creatividad, técnica y compromiso ambiental, capaces de diseñar espacios funcionales, estéticos y sostenibles.",
+        imagen: "img/ARQUI.jpg",
+      },
+      {
+        titulo: "Licenciatura en Contabilidad",
+        descripcion:
+          "Desarrolla expertos en gestión contable y financiera, con capacidades analíticas para la toma de decisiones y cumplimiento normativo.",
+        imagen: "img/CONTA.jpg",
+      },
+    ];
+
+    function mostrarPrograma(index) {
+      const programa = programas[index];
+      document.getElementById("titulo-programa").textContent = programa.titulo;
+      document.getElementById("descripcion-programa").textContent = programa.descripcion;
+      document.getElementById("imagen-programa").src = programa.imagen;
+
+      // Efecto visual: resalta elemento seleccionado
+      document.querySelectorAll(".lista-programas li").forEach(li => li.classList.remove("activo"));
+      document.querySelectorAll(".lista-programas li")[index].classList.add("activo");
+    }
+  </script>
+</body>
+</html>

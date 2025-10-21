@@ -1,0 +1,533 @@
+/* === ESTILO GLOBAL === */
+body {
+  margin: 0;
+  font-family: "Segoe UI", Arial, sans-serif;
+  background-color: #f8f9fa;
+  color: #333;
+}
+
+h1, h2, h3 {
+  font-weight: 600;
+  color: #003366;
+}
+
+a {
+  text-decoration: none;
+}
+
+header {
+  background-color: #003366;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 40px;
+}
+
+header .logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+header img {
+  height: 50px;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 25px;
+}
+
+nav a {
+  color: white;
+  font-weight: 500;
+}
+
+nav a.activo {
+  border-bottom: 2px solid #ffcc00;
+  padding-bottom: 3px;
+}
+
+.hero {
+  background-image: url('img/FERIA.jpg');
+  background-size: cover;
+  background-position: center;
+  height: 80vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.overlay {
+  background-color: rgba(0, 60, 130, 0.5); /* Azul UTP con transparencia */
+  padding: 60px;
+  text-align: center;
+  border-radius: 10px;
+  backdrop-filter: blur(2px); /* sutil efecto de vidrio */
+  box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+}
+
+
+.overlay h2 {
+  color: white;
+  font-size: 2.5rem;
+}
+
+.overlay p {
+  color: #ddd;
+  font-size: 1.2rem;
+}
+
+.btn {
+  background-color: #ffcc00;
+  color: #003366;
+  padding: 12px 25px;
+  border-radius: 5px;
+  font-weight: bold;
+  display: inline-block;
+  margin-top: 20px;
+}
+
+.btn:hover {
+  background-color: #ffdd33;
+}
+
+/* === SECCIONES === */
+.banner {
+  height: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  background-size: cover;
+  background-position: center;
+}
+
+.contenedor {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 30px;
+  gap: 20px;
+}
+
+.card {
+  background-color: white;
+  width: 300px;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  transition: transform 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+/* === TABLA DE CHARLAS === */
+table {
+  width: 90%;
+  margin: 30px auto;
+  border-collapse: collapse;
+}
+
+th, td {
+  border: 1px solid #ccc;
+  padding: 12px;
+  text-align: center;
+}
+
+th {
+  background-color: #003366;
+  color: white;
+}
+
+/* === FORMULARIO === */
+.formulario form {
+  background-color: white;
+  max-width: 450px;
+  margin: 40px auto;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+label {
+  display: block;
+  margin-top: 15px;
+  font-weight: bold;
+}
+
+input, select, textarea {
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+/* === FOOTER === */
+footer {
+  background-color: #003366;
+  color: white;
+  text-align: center;
+  padding: 15px 0;
+  margin-top: 40px;
+}
+
+/* === RESPONSIVE === */
+@media (max-width: 768px) {
+  header {
+    flex-direction: column;
+  }
+
+  nav ul {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .hero {
+    height: 60vh;
+  }
+
+  .overlay h2 {
+    font-size: 1.8rem;
+  }
+
+  .contenedor {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+  /* === TARJETAS DESPLEGABLES === */
+.card-desplegable {
+  background-color: white;
+  width: 320px;
+  border-radius: 10px;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+  margin: 15px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.card-desplegable:hover {
+  transform: translateY(-5px);
+}
+
+/* Checkbox oculto */
+.card-desplegable input {
+  display: none;
+}
+
+/* Título visible de la tarjeta */
+.titulo-card {
+  display: block;
+  padding: 20px;
+  background-color: #003366;
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+  text-align: center;
+  transition: background-color 0.3s;
+}
+
+.titulo-card:hover {
+  background-color: #0055aa;
+}
+
+/* Contenido que se muestra al desplegar */
+.contenido-card {
+  max-height: 0;
+  overflow: hidden;
+  background-color: #f9f9f9;
+  transition: max-height 0.4s ease, padding 0.3s;
+  padding: 0 20px;
+}
+
+/* Cuando el checkbox está marcado, se despliega */
+.card-desplegable input:checked ~ .contenido-card {
+  max-height: 200px;
+  padding: 20px;
+  border-top: 1px solid #ccc;
+}
+
+.contenido-card p {
+  margin: 0;
+  color: #333;
+  text-align: justify;
+  font-size: 0.95rem;
+}
+
+/* Tarjetas de programas */
+.programas-container {
+    max-width: 1000px;
+    margin: 40px auto;
+    padding: 20px;
+    text-align: center;
+}
+
+.tarjetas-programas {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+/* Cada tarjeta */
+.tarjeta {
+    background: #ffffff;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+    padding: 15px;
+    text-align: left;
+    cursor: pointer;
+    overflow: hidden;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.tarjeta:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 14px rgba(0,0,0,0.2);
+}
+
+.tarjeta summary {
+    font-weight: bold;
+    font-size: 1.2em;
+    list-style: none;
+    cursor: pointer;
+    color: #004080;
+    outline: none;
+}
+
+.tarjeta summary::marker {
+    display: none;
+}
+
+.tarjeta[open] summary {
+    color: #007BFF;
+}
+
+.tarjeta p {
+    margin-top: 10px;
+    font-size: 0.95em;
+    color: #333;
+    line-height: 1.5;
+    animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from {opacity: 0; transform: translateY(-5px);}
+    to {opacity: 1; transform: translateY(0);}
+}
+
+/* === PANEL DE PROGRAMAS === */
+.programas-panel {
+  display: flex;
+  max-width: 1100px;
+  margin: 40px auto;
+  background: #fff;
+  border-radius: 15px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  overflow: hidden;
+}
+
+.lista-programas {
+  background-color: #003366;
+  color: white;
+  width: 35%;
+  padding: 20px;
+}
+
+.lista-programas h2 {
+  font-size: 1.3rem;
+  margin-bottom: 20px;
+  text-align: center;
+  color: #ffcc00;
+}
+
+.lista-programas ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.lista-programas li {
+  padding: 12px 15px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.lista-programas li:hover {
+  background-color: #0055aa;
+}
+
+.lista-programas li.activo {
+  background-color: #ffcc00;
+  color: #003366;
+  font-weight: bold;
+}
+
+/* === DETALLE DEL PROGRAMA === */
+.detalle-programa {
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 25px;
+  padding: 30px;
+  text-align: left;
+  animation: fadeIn 0.3s ease;
+}
+
+.detalle-programa img {
+  width: 250px;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.15);
+}
+
+.detalle-programa h3 {
+  color: #003366;
+  margin-bottom: 10px;
+}
+
+.detalle-programa p {
+  color: #333;
+  line-height: 1.6;
+}
+
+/* === RESPONSIVE PANEL === */
+@media (max-width: 900px) {
+  .programas-panel {
+    flex-direction: column;
+  }
+
+  .lista-programas {
+    width: 100%;
+  }
+
+  .detalle-programa {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .detalle-programa img {
+    width: 80%;
+    height: auto;
+  }
+}
+
+/* === CORRECCIÓN PARA EL LOGO Y TÍTULO === */
+header .logo h1 {
+  margin: 0;
+  font-size: 1.4rem;
+  color: white;
+  line-height: 1.2;
+  max-width: 280px; /* evita que se expanda demasiado */
+}
+
+header .logo img {
+  height: 55px;
+  width: auto;
+}
+
+/* === ESTILO SECCIÓN INTRODUCCIÓN === */
+.intro {
+  max-width: 900px;       /* ancho máximo para que el texto no se estire demasiado */
+  margin: 40px auto;      /* centra horizontalmente y agrega margen superior/inferior */
+  padding: 0 20px;        /* espacio a los lados en pantallas pequeñas */
+  text-align: center;     /* centra el texto */
+  line-height: 1.6;       /* más legible */
+  font-size: 1.05rem;
+  color: #333;
+}
+
+.intro h2 {
+  color: #003366;
+  margin-bottom: 20px;
+  font-size: 1.8rem;
+}
+
+/* === SECCIÓN DE CONTACTO === */
+.contacto {
+  background-color: #f0f4f8;
+  padding: 60px 20px;
+  text-align: center;
+  color: #333;
+}
+
+.contacto h2 {
+  color: #003366;
+  margin-bottom: 20px;
+  font-size: 1.8rem;
+}
+
+.contacto p {
+  max-width: 800px;
+  margin: 0 auto 40px auto;
+  line-height: 1.6;
+  font-size: 1.05rem;
+}
+
+.contacto-info {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+}
+
+.contacto-item {
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  padding: 25px 20px;
+  width: 260px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.contacto-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 14px rgba(0,0,0,0.2);
+}
+
+.contacto-item img {
+  width: 50px;
+  height: 50px;
+  margin-bottom: 15px;
+}
+
+.contacto-item h3 {
+  color: #004080;
+  margin-bottom: 10px;
+}
+
+.contacto-item p {
+  font-size: 0.95rem;
+  margin: 0;
+}
+
+.contacto-item a {
+  color: #007BFF;
+  text-decoration: none;
+}
+
+.contacto-item a:hover {
+  text-decoration: underline;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .contacto-info {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+
+
+
+
+

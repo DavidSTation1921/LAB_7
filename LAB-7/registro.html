@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Registro - Feria Académica UTP 2025</title>
+  <link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+  <header>
+    <div class="logo">
+      <img src="https://utp.ac.pa/sites/default/files/documentos/2023/imagen/logo_utp-rgb_2022.png" alt="Logo UTP">
+      <h1>Feria Académica UTP 2025</h1>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="programas.html">Programas</a></li>
+        <li><a href="charlas.html">Charlas</a></li>
+        <li><a href="registro.html" class="activo">Registro</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="banner" style="background-image: url('img/registro.jpg');">
+      <h2>Formulario de Registro</h2>
+    </section>
+
+    <section class="formulario">
+      <form action="#" method="post">
+        <label for="nombre">Nombre completo:</label>
+        <input type="text" id="nombre" name="nombre" required>
+
+        <label for="correo">Correo electrónico:</label>
+        <input type="email" id="correo" name="correo" required>
+
+        <label for="programa">Programa de interés:</label>
+        <select id="programa" name="programa" required>
+          <option value="">Seleccione...</option>
+          <option>Ingeniería en Sistemas Computacionales</option>
+          <option>Licenciatura en Administración de Empresas</option>
+          <option>Ingeniería Civil</option>
+          <option>Arquitectura</option>
+          <option>Licenciatura en Contabilidad</option>
+        </select>
+
+        <label for="comentario">Comentario (opcional):</label>
+        <textarea id="comentario" name="comentario" rows="4"></textarea>
+
+        <button type="submit" class="btn">Enviar Registro</button>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2025 Universidad Tecnológica de Panamá</p>
+  </footer>
+</body>
+</html>
